@@ -1,0 +1,14 @@
+.App {
+  width: 37vw;
+  height: 116vh;
+  display: flex;
+  background-color: black;
+  margin-top: -110px;
+  margin-left: 550px;
+
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}

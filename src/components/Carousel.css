@@ -1,0 +1,59 @@
+body {
+    background-color: gray;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border-color: black;
+    border-style: solid;
+    padding: 6px;
+
+}
+
+.arrow {
+    font-size: 3rem;
+    cursor: pointer;
+    color: white;
+
+}
+
+.secondcon {
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+div h1,
+h2 {
+    text-align: center;
+    background-color: rgba(240, 248, 255, 0.563);
+    color: black;
+    border-radius: 0.3em;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.secondcon h1 {
+    margin-bottom: 40px;
+    font-size: 3rem;
+    border-radius: 5px;
+    border-color: ;
+    padding: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.secondcon h2 {
+    font-size: 1.5rem;
+}
