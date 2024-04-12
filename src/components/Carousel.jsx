@@ -1,40 +1,50 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 import "./Carousel.css";
 import { images } from "../data/CarouselData";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-const Carousel = () => {
-  const [imgScroll, setImgScroll] = useState(0);
+class Carousel extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      index: 0,
+    };
+  }
 
-  const handleNext = () => {
-    setImgScroll((prevImgScroll) => (prevImgScroll + 1) % images.length);
+  handlePrev = () => {
+    this.setState((preview) => ({
+      index: preview.index === 0 ? images.length - 1 : preview.index - 1,
+    }));
   };
 
-  const handlePrev = () => {
-    setImgScroll(
-      (prevImgScroll) => (prevImgScroll - 1 + images.length) % images.length
-    );
+  handleNext = () => {
+    this.setState((preview) => ({
+      index: preview.index === images.length - 1 ? 0 : preview.index + 1,
+    }));
   };
 
-  return (
-    <div className="main">
-      <ArrowBackIosIcon className="arrow" onClick={handlePrev} />
-      <div
-        className="secondcon"
-        style={{
-          backgroundImage: `url(${images[imgScroll].img})`,
-          height: "750px",
-          width: "500px",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        <h1>{images[imgScroll].title}</h1>
-        <h2>{images[imgScroll].subtitle}</h2>
+  render() {
+    const { index } = this.state;
+    return (
+      <div className="main">
+        <ArrowBackIosIcon className="arrow" onClick={this.handlePrev} />
+        <div
+          className="secondcon"
+          style={{
+            backgroundImage: `url(${images[index].img})`,
+            height: "750px",
+            width: "500px",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          <h1>{images[index].title}</h1>
+          <h2>{images[index].subtitle}</h2>
+        </div>
+        <ArrowForwardIosIcon className="arrow" onClick={this.handleNext} />
       </div>
-      <ArrowForwardIosIcon className="arrow" onClick={handleNext} />
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default Carousel;
